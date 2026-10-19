@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Paleta inspirada en el río Magdalena: agua verde profunda, arena, hoja */
+@theme {
+  --color-rio: #0E4A47;
+  --color-rio-deep: #08302E;
+  --color-arena: #E2B25C;
+  --color-papel: #F1F3EC;
+  --color-tinta: #172422;
+  --color-hoja: #5E9A4C;
+  --color-rosa: #D9668F;
+  --color-gris: #5B6B68;
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Figtree", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-papel);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-arena);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* El río del hero se dibuja al cargar.
+   (La otra animación, los proyectos que se arman al bajar, está en Projects.jsx) */
+.river-path {
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  animation: draw 2.2s cubic-bezier(.6,.1,.2,1) .2s forwards;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .river-path { animation: none; stroke-dashoffset: 0; }
+}

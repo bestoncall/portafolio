@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+
+# CV completo y tarjeta: tienen el teléfono, se quedan solo en el PC
+# (la versión sin teléfono que usa el portafolio está en public/)
+cv-y-tarjeta/
+
+# Configuración local de Claude Code
+.claude/
